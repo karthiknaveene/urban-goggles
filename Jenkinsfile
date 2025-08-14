@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'sleep 3'
+                sh 'sleep 1'
                 sh 'echo "Running some dummy tests..."'
             }
         }
