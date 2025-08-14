@@ -2,12 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Abort Simulation') {
+        stage('Unstable Simulation') {
             steps {
-                echo 'Aborting the build...'
+                echo 'Marking build as UNSTABLE'
                 script {
-                    currentBuild.result = 'ABORTED'
-                    error('Aborting the build intentionally')
+                    currentBuild.result = 'UNSTABLE'
                 }
             }
         }
