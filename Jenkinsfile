@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'sleep 3'
+                sh 'sleep 2'
                 sh 'echo "Hello from Build stage!"'
             }
         }
@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'sleep 3'
+                sh 'sleep 1'
                 sh 'echo "Running some dummy tests..."'
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         stage('Tag') {
             steps {
                 echo 'Tagging...'
-                sh 'sleep 3'
+                sh 'sleep 1'
                 sh 'echo "Running dummy tag..."'
             }
         }
@@ -31,7 +31,7 @@ pipeline {
                 echo 'Deploying...'
                 sh 'sleep 3'
                 sh 'echo "Pretending to deploy..."'
-                // Intentionally fail the build
+                 Intentionally fail the build
                 // sh 'exit 1'
             }
         }
