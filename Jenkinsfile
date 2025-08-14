@@ -21,7 +21,7 @@ pipeline {
         stage('Tag') {
             steps {
                 echo 'Tagging...'
-                sh 'sleep 3'
+                sh 'sleep 1'
                 sh 'echo "Running dummy tag..."'
             }
         }
