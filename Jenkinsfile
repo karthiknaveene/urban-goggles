@@ -35,6 +35,26 @@ pipeline {
                 // sh 'exit 1'
             }
         }
+
+     stage('Nwe stage 1 ') {
+                steps {
+                    echo 'Deploying...'
+                    sh 'sleep 1'
+                    sh 'echo "Pretending to deploy..."'
+                    // Intentionally fail the build
+                    // sh 'exit 1'
+                }
+            }
+
+     stage('New stage 2') {
+                steps {
+                    echo 'Deploying...'
+                    sh 'sleep 1'
+                    sh 'echo "Pretending to deploy..."'
+                    // Intentionally fail the build
+                    // sh 'exit 1'
+                }
+            }
         
     }
 }
