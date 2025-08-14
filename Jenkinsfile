@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Test - edited') {
             steps {
                 echo 'Testing...'
                 sh 'sleep 3'
@@ -26,7 +26,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy - edited') {
             steps {
                 echo 'Deploying...'
                 sh 'sleep 3'
