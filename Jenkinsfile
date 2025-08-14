@@ -2,10 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Failing Stage') {
+        stage('Abort Simulation') {
             steps {
-                echo 'This will fail the build'
-                sh 'exit 1'  // Simulates failure
+                echo 'Aborting the build...'
+                script {
+                    currentBuild.result = 'ABORTED'
+                    error('Aborting the build intentionally')
+                }
             }
         }
     }
