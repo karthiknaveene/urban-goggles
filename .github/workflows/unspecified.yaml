@@ -1,9 +1,8 @@
 name: unspecified
 
 on:
-  push:
-    branches:
-      - main
+  repository_dispatch:
+    types: [test_result]
 
 jobs:
   run-scheduled-task:
