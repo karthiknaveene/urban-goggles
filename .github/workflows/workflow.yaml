@@ -21,7 +21,8 @@ jobs:
         id: run-workflow
         with:
           cloudbees-url:  "https://api.saas-preprod.beescloud.com/"
-          workflow-file-name: "run-cloudbees.yaml"
+          workflow-file-name: "gh-workflow.yaml"
+          branch: "feature-1"
           cloudbees-pat: ${{ secrets.PREPROD_PAT }}
           
       - name: Checkout Repository - v1
