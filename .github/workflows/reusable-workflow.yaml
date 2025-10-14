@@ -32,7 +32,6 @@ jobs:
           sleep 25
 
   test:
-    if: inputs.run-tests == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
