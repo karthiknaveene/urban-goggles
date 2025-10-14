@@ -3,7 +3,7 @@ name: unspecified
 on:
   push:
     branches:
-      -main
+      - main
 
 jobs:
   run-scheduled-task:
