@@ -50,7 +50,12 @@ jobs:
 
     - name: Notify of Result
       run: |
-        if [ ${{ steps.random_status.outcome }} == 'success' ]; then
+        if [ "${{ steps.random_status.outcome }}" == "success" ]; then
           echo "The workflow completed successfully!"
+        elif [ "${{ steps.random_status.outcome }}" == "failure" ]; then
+          echo "The workflow failed!"
+        elif [ "${{ steps.random_status.outcome }}" == "skipped" ]; then
+          echo "The workflow was skipped!"
         else
-          echo "The workflow failed or was skipped!"
+          echo "The workflow was aborted or unstable!"
+        fi
