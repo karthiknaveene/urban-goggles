@@ -1,0 +1,56 @@
+name: Random Status Workflow
+
+on:
+  push:
+    branches:
+      - branch-5
+
+jobs:
+  random-status-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Simulate Random Status
+      id: random_status
+      run: |
+        RANDOM_NUMBER=$(($RANDOM % 5))  # Now generating 0-4 (5 possible outcomes)
+        echo "Random number is: $RANDOM_NUMBER"
+        
+        case $RANDOM_NUMBER in
+          0)
+            echo "Simulating success"
+            exit 0  # Success
+            ;;
+          1)
+            echo "Simulating failure"
+            exit 1  # Failure
+            ;;
+          2)
+            echo "Simulating skipped"
+            echo "This step was skipped."
+            exit 0  # Successful exit, but marked as skipped in GitHub Actions logs
+            ;;
+          3)
+            echo "Simulating aborted"
+            echo "Aborting the job..."
+            exit 0  # Successful exit, but treated as "Aborted"
+            ;;
+          4)
+            echo "Simulating unstable"
+            exit 0  # Successful exit, but this can be interpreted as unstable or flaky by your testing or CI setup
+            ;;
+          *)
+            echo "Unknown status"
+            exit 1
+            ;;
+        esac
+
+    - name: Notify of Result
+      run: |
+        if [ ${{ steps.random_status.outcome }} == 'success' ]; then
+          echo "The workflow completed successfully!"
+        else
+          echo "The workflow failed or was skipped!"
