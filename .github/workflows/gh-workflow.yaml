@@ -2,8 +2,8 @@ name: Scheduled Workflow Every 5 Minutes
 
 on:
  workflow_dispatch:
+ pull_request_target:
   
-
 jobs:
   run-scheduled-task:
     runs-on: ubuntu-latest
